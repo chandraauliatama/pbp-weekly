@@ -1,6 +1,6 @@
 <?php
 
-if(!$_GET['module'] || ! in_array($_GET['module'], ['delete', 'create', 'update', 'view', 'search']))
+if(!$_GET['module'] || ! in_array($_GET['module'], ['delete', 'create', 'update', 'view', 'search', 'edit']))
 {
     echo "<script>window.location.href='index.php'</script>";
 }
