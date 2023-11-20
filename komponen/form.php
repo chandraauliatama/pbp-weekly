@@ -3,12 +3,11 @@ function inputContainerComponent($type, $name, $label, $value)
 {
     return "
         <div class='input-container'>
-        <label for='{$name}'>{$label}</label>
-        <input type='{$type}' name='{$name}' id='{$name}' value='{$value}'>
+            <label for='{$name}'>{$label}</label>
+            <input type='{$type}' name='{$name}' id='{$name}' value='{$value}'>
         </div>
     ";
 }
-
 ?>
 
 <div>
