@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function redirectJs($module = false)
 {
     return $module 
@@ -7,7 +9,7 @@ function redirectJs($module = false)
         : "window.location.href='index.php'";
 }
 
-$allowedModule = ['delete', 'create', 'update', 'view', 'search', 'edit'];
+$allowedModule = ['delete', 'create', 'update', 'view', 'search', 'edit', 'login', 'logout'];
 
 if(!$_GET['module'] || ! in_array($_GET['module'], $allowedModule))
 {
@@ -100,7 +102,38 @@ if($_GET['module'] == 'update') {
         where id={$_POST['id']}
     ";
 
+    $redirect = redirectJs('view');
+
     echo $conn->query($updateQuery) === TRUE 
-      ? "<script>alert('Data Berhasil Diubah'); window.location.href='index.php?module=view'</script>" 
+      ? "<script>alert('Data Berhasil Diubah'); {$redirect}</script>" 
       : "Error: {$updateQuery} <br> {$conn->error}";
 }
+
+if($_GET['module'] == 'login') {
+    $redirect = redirectJs();
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $loginQuery = "SELECT * FROM user WHERE username = '{$username}' and password = '{$password}'"; // Using prepared statement
+    
+    $result = $conn->query($loginQuery);
+    if (!$result) {
+        echo "Error: {$loginQuery} <br> {$conn->error}";
+    }
+
+    if($result->num_rows > 0) {
+        $_SESSION['username'] = $_POST['username'];
+        echo "<script>alert('Anda Berhasil Login'); {$redirect}</script>";
+    } else {
+        echo "<script>alert('Pengguna Tidak Ditemukan'); {$redirect}</script>";
+    }
+}
+
+if($_GET['module'] == 'logout')
+{
+    session_unset();
+
+    $redirect = redirectJs();
+
+    echo "<script>alert('Anda Telah Logout'); {$redirect} </script>";
+}
+

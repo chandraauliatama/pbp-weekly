@@ -22,7 +22,7 @@
     height: 110px;
     padding: 10px;
     color: #003399;
-    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 #sidebar {
@@ -33,10 +33,10 @@
     background-color: #99ccff;
 }
 
-#sidebar h3{
+#sidebar h3 {
     color: #993300;
     padding-left: 10px;
-    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;            
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 ul#navmenu {
@@ -61,12 +61,17 @@ ul#navmenu a {
     cursor: pointer;
 }
 
-ul#navmenu a:hover, ul#navmenu a:focus, ul#navmenu a:active {
+ul#navmenu a:hover,
+ul#navmenu a:focus,
+ul#navmenu a:active {
     background-color: #333;
     color: #fff;
 }
 
-ul#navmenu a.selected, ul#navmenu a.selected:hover, ul#navmenu a.selected:focus, ul#navmenu a.selected:active {
+ul#navmenu a.selected,
+ul#navmenu a.selected:hover,
+ul#navmenu a.selected:focus,
+ul#navmenu a.selected:active {
     background-color: #386086;
     color: #fff;
 }
@@ -87,7 +92,7 @@ ul#navmenu a.selected {
 
 #page h2 {
     color: #993300;
-    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 img {
@@ -103,4 +108,27 @@ img {
     margin-top: 10px;
     text-align: center;
     background-color: #99ccff;
+}
+
+.input-container label {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input-container {
+    width: 100%;
+    margin-top: 6px;
+    display: flex;
+}
+
+.login-form {
+    padding: 7px;
+    margin: auto;
+}
+
+.login-form input {
+    width: 90%;
+    margin-bottom: 15px;
 }
